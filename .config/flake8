@@ -1,0 +1,19 @@
+[flake8]
+ignore =E800,E226,E302,ANN101,ANN102,ANN002,ANN003,ANN204,W503,N802, SIM106, SIM113, SIM119, SIM9 ,Q000 ,WPS453, E203,WPS326,WPS410, E305
+max-line-length = 300
+max-complexity  = 18
+exclude =
+    .tox,
+    __pycache__,
+    .ci,
+    contrib,
+    example-notebooks,
+    script,
+    shared_funcs,
+    try.py
+type-checking-pydantic-enabled-baseclass-passlist = NamedTuple, TypedDict
+suppress-none-returning = True
+suppress-dummy-args = True
+allow-untyped-defs = True
+allow-untyped-nested = True
+mypy-init-return = False
