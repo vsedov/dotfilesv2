@@ -6,3 +6,4 @@
 *.xcworkspace
 *.xcuserdatad
 temp/
+__pycache__/
