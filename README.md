@@ -5,7 +5,10 @@ These are managed by [yadm](https://github.com/TheLocehiliosan/yadm)
 
 
 # Showcase
-## i3
+## i3!
+
+[image](https://user-images.githubusercontent.com/28804392/228485295-91a352a6-7261-402a-a948-ecb57d2a5eab.png)
+
 TODO
 
 ## HYPRLAND
