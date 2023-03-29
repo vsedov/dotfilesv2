@@ -1,0 +1,12 @@
+[
+  {
+    "command": [
+      "/tmp/.mount_youtub8BCyPy/youtube music for desktop",
+      "music",
+      "for",
+      "desktop",
+      "--enable-crashpad"
+    ],
+    "working_directory": "/home/viv"
+  }
+]

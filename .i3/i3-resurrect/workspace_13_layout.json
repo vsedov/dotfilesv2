@@ -1,0 +1,209 @@
+{
+  "border": "normal",
+  "current_border_width": -1,
+  "floating": "auto_off",
+  "fullscreen_mode": 1,
+  "geometry": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "layout": "splitv",
+  "marks": [],
+  "name": "13:\uf740",
+  "orientation": "vertical",
+  "percent": 0.25,
+  "scratchpad_state": "none",
+  "sticky": false,
+  "type": "workspace",
+  "workspace_layout": "default",
+  "nodes": [
+    {
+      "border": "normal",
+      "current_border_width": -1,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "layout": "tabbed",
+      "marks": [],
+      "name": null,
+      "orientation": "horizontal",
+      "percent": null,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "nodes": [
+        {
+          "border": "normal",
+          "current_border_width": -1,
+          "floating": "auto_off",
+          "fullscreen_mode": 0,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "layout": "splith",
+          "marks": [],
+          "name": null,
+          "orientation": "horizontal",
+          "percent": 0.19999999999999998,
+          "scratchpad_state": "none",
+          "sticky": false,
+          "type": "con",
+          "workspace_layout": "default",
+          "nodes": [
+            {
+              "border": "pixel",
+              "current_border_width": 0,
+              "floating": "auto_off",
+              "fullscreen_mode": 0,
+              "geometry": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 600
+              },
+              "layout": "splith",
+              "marks": [],
+              "name": "/home/viv/GitHub/personal/year_3/Computaional_finance/week_1/build/week_1.pdf",
+              "orientation": "none",
+              "percent": 1.0,
+              "scratchpad_state": "none",
+              "sticky": false,
+              "type": "con",
+              "workspace_layout": "default",
+              "swallows": [
+                {
+                  "class": "^Zathura$",
+                  "instance": "^org\\.pwmt\\.zathura$",
+                  "title": "^/home/viv/GitHub/personal/year_3/Computaional_finance/week_1/build/week_1\\.pdf$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "border": "pixel",
+          "current_border_width": 0,
+          "floating": "auto_off",
+          "fullscreen_mode": 0,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 945,
+            "height": 1030
+          },
+          "layout": "splith",
+          "marks": [],
+          "name": "</> 1::zsh",
+          "orientation": "none",
+          "percent": 0.19999999999999998,
+          "scratchpad_state": "none",
+          "sticky": false,
+          "type": "con",
+          "workspace_layout": "default",
+          "swallows": [
+            {
+              "class": "^kitty$",
+              "instance": "^kitty$",
+              "title": "^</>\\ 1::zsh$"
+            }
+          ]
+        },
+        {
+          "border": "pixel",
+          "current_border_width": 0,
+          "floating": "auto_off",
+          "fullscreen_mode": 0,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 1012
+          },
+          "layout": "splith",
+          "marks": [],
+          "name": "handout01-5.pdf \u2014 Firefox Nightly",
+          "orientation": "none",
+          "percent": 0.19999999999999998,
+          "scratchpad_state": "none",
+          "sticky": false,
+          "type": "con",
+          "workspace_layout": "default",
+          "swallows": [
+            {
+              "class": "^firefox\\-nightly$",
+              "instance": "^Navigator$",
+              "title": "^handout01\\-5\\.pdf\\ \u2014\\ Firefox\\ Nightly$"
+            }
+          ]
+        },
+        {
+          "border": "pixel",
+          "current_border_width": 0,
+          "floating": "auto_off",
+          "fullscreen_mode": 0,
+          "geometry": {
+            "x": 1930,
+            "y": 560,
+            "width": 2,
+            "height": 2
+          },
+          "layout": "splith",
+          "marks": [],
+          "name": "CorpFinance.Siegal.fall.04.doc - LibreOffice Writer",
+          "orientation": "none",
+          "percent": 0.19999999999999998,
+          "scratchpad_state": "none",
+          "sticky": false,
+          "type": "con",
+          "workspace_layout": "default",
+          "swallows": [
+            {
+              "class": "^libreoffice\\-writer$",
+              "instance": "^libreoffice$",
+              "title": "^CorpFinance\\.Siegal\\.fall\\.04\\.doc\\ \\-\\ LibreOffice\\ Writer$"
+            }
+          ]
+        },
+        {
+          "border": "pixel",
+          "current_border_width": 0,
+          "floating": "auto_off",
+          "fullscreen_mode": 0,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 945,
+            "height": 510
+          },
+          "layout": "splith",
+          "marks": [],
+          "name": "\u2026/personal/year_3/Computaional_finance",
+          "orientation": "none",
+          "percent": 0.19999999999999998,
+          "scratchpad_state": "none",
+          "sticky": false,
+          "type": "con",
+          "workspace_layout": "default",
+          "swallows": [
+            {
+              "class": "^kitty$",
+              "instance": "^kitty$",
+              "title": "^\u2026/personal/year_3/Computaional_finance$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

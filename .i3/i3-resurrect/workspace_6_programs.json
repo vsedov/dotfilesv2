@@ -1,0 +1,10 @@
+[
+  {
+    "command": [
+      "/usr/lib/franz/franz",
+      "--no-sandbox",
+      "--enable-crashpad"
+    ],
+    "working_directory": "/home/viv"
+  }
+]

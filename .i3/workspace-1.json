@@ -1,0 +1,100 @@
+{
+  "border": "normal",
+  "current_border_width": -1,
+  "floating": "auto_off",
+  "fullscreen_mode": 0,
+  "geometry": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "layout": "splitv",
+  "name": "\uf441",
+  "orientation": "vertical",
+  "percent": null,
+  "scratchpad_state": "none",
+  "sticky": false,
+  "type": "workspace",
+  "workspace_layout": "default",
+  "nodes": [
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 600
+      },
+      "layout": "splith",
+      "name": "~/Desktop/PDF/Discrete Math for Computer Science Students ( PDFDrive.com ).pdf",
+      "orientation": "none",
+      "percent": 0.3333333333333333,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^Zathura$",
+          "instance": "^org\\.pwmt\\.zathura$"
+        }
+      ]
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 746,
+        "height": 338
+      },
+      "layout": "splith",
+      "name": "viv@vivs-pc: ~",
+      "orientation": "none",
+      "percent": 0.3333333333333333,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "title": "WOOORk",
+
+        }
+      ]
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 746,
+        "height": 338
+      },
+      "layout": "splith",
+      "name": "viv@vivs-pc: ~",
+      "orientation": "none",
+      "percent": 0.3333333333333333,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "title": "WOOORk",
+          
+        }
+      ]
+    }
+  ]
+}

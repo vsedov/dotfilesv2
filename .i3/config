@@ -1,0 +1,469 @@
+#n/Execs
+exec --no-startup-id dunst
+exec --no-startup-id flameshot
+
+# Only enable gaps on a workspace when there is at least one container
+# Trial
+smart_gaps on
+focus_on_window_activation smart
+
+
+exec --no-startup-id applet
+exec --no-startup-id nm-applet
+# exec --no-startup-id systemctl --user restart pulseaudio.service
+exec --no-startup-id systemctl enable systemd-swap.service
+  exec --no-startup-id systemctl enable --now cronie.service
+
+
+
+exec --no-startup-id systemctl --user enable udevmon
+exec --no-startup-id systemctl --user start udevmon
+
+# exec --no-startup-id systemctl --user start psd
+
+
+# Let Hdmi - all of that be a buffer monitro and let the 4k , one deal with other main process which relate to coding .
+
+exec --no-startup-id xrandr --output HDMI-0  --left-of DP-0
+exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 240.00
+exec_always feh --bg-scale ~/Downloads/upscalebuterfly.png
+exec --no-startup /usr/lib/geoclue-2.0/demos/agent &
+
+# Stop booting i3, for some reason i do not think this might be needed
+# exec_always --no-startup-id picom --experimental-backends --backend glx --vsync --config ~/.config/compton.conf
+#Config will have to change after third monitor .
+# exec_always --no-startup-id ~/Documents/Wallpaper/./wallpaper-wrap.sh */
+
+# I tend to use ibus for languages when learning japanese , so its quite nice
+
+exec_always --no-startup-id i3-msg "workspace $ws1; append_layout /home/viv/.i3/workspace-main.json"
+
+exec  kitty --title matrix -e zsh -c 'calcure'
+exec  kitty --title cava -e zsh -c 'cava'
+exec  kitty --title neo -e zsh -c 'srfetch && zsh'
+exec  kitty --title htop -e zsh -c 'gotop -p -a'
+
+# think it might be best to give its relative path when working with things
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+exec_always --no-startup-id /usr/bin/ibus-daemon &
+exec_always --no-startup-id /usr/bin/picom
+
+# Variables {{{
+set $mod Mod4
+set $sup Mod1
+set $terminal tabbed -c alacritty -embed
+set $ws1  "1:"
+set $ws2  "2:"
+set $ws3  "3:"
+set $ws4  "4:"
+set $ws5  "5:"
+set $ws6  "6:"
+set $ws7  "7:"
+set $ws8  "8:"
+set $ws9  "9:"
+set $ws0 "0:"
+set $ws11 "11:"
+set $ws12 "12:"
+set $ws13 "13:"
+set $ws14 "14:"
+set $ws15 "15:"
+
+
+# }}}
+
+
+
+workspace "4:" output HDMI-0
+workspace "2:" output HDMI-0
+workspace "" output HDMI-0
+workspace "8:" output HDMI-0
+
+
+workspace "9:" output DP-0
+workspace "6:" output DP-0
+workspace "7:" output DP-0
+workspace "5:" output DP-0
+workspace "1:" output DP-0
+workspace "3:" output DP-0
+
+
+
+#floating_minimum_size 39 x 39
+#floating_maximum_size 700 x 450
+
+floating_modifier $mod
+
+exec_always --no-startup-id i3-msg "workspace ; exec urxvt -e zsh -c 'fortune | cowsay -f vader && zsh'"
+
+
+
+
+#Set Mod
+set $mod        Mod4
+set $bg-color       #172A47
+set $text-color     #5A9857
+set $urgent-bg-color    #E53935
+set $inactive-bg-color  #435E75
+
+
+##########################################
+
+#Scrolling - doesn't work
+exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+#WORKSPACE STARTUP
+
+#Gaps and Window
+for_window [class="Frame"] floating disable
+for_window [workspace = ""] floating enable
+for_window [class="^.*"] border pixel 0
+for_window [workspace = ""] focus child, layout stacking, focus
+for_window [workspace = ""] focus child, layout stacking, focus
+
+
+#gaps inner 20
+gaps inner 10
+
+#new_window pixel 3
+#new_float pixel 3
+
+hide_edge_borders vertical
+
+# Color variables
+set $unfocused_border #72afff
+set $focused_border #82ff80
+
+#                       class   border  backgr. text indicator
+# client.focused          $base05 $base05 $base00 $base05
+# client.focused_inactive $base03 $base03 $base05 $base03
+# client.unfocused        $base03 $base03 $base05 $base00
+# client.urgent $base01   $base01 $base05 $base00
+#
+# client.background       #ffffff
+
+client.focused          #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused        #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent           #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder      #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background       #2f343f
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:DejaVu Sans Mono 9
+font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 9
+font pango:Terminus 9px
+
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+# Browsers
+bindsym $mod+Shift+BackSpace exec firefox-nightly --sync
+bindsym $mod+Shift+Return exec waterfox-g --sync
+
+
+
+# kill focused window
+bindsym $mod+q kill
+
+# start rofi
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -bw 0 -width 100 -padding 400 -fullscreen
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+o layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+z focus child
+
+bindsym $mod+x layout toggle tabbed splitv
+
+# put YouTube into fullscreen and execute this for media mode
+bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 2140 20
+
+focus_wrapping no
+bindsym $mod+b border toggle
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace 
+
+bindsym $mod+F1 workspace $ws11
+bindsym $mod+F2 workspace $ws12
+bindsym $mod+F3 workspace $ws13
+bindsym $mod+F4 workspace $ws14
+bindsym $mod+F5 workspace $ws15
+
+
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace 
+
+
+bindsym $mod+Shift+F1 move container to workspace $ws11
+bindsym $mod+Shift+F2 move container to workspace $ws12
+bindsym $mod+Shift+F3 move container to workspace $ws13
+bindsym $mod+Shift+F4 move container to workspace $ws14
+bindsym $mod+Shift+F5 move container to workspace $ws15
+
+#assign apps to workspaces
+assign [class = "urxvt"] $ws1
+assign [class = "Binance"] $ws2
+assign [class = "Subl"] $ws3
+assign [class = "discord"] $ws4
+assign [class = "discord-screenaudio"] $ws4
+
+assign [class = "whatsapp-nativefier-d40211"] $ws6
+assign [class = "session"] $ws6
+assign [class = "Franz"] $ws6
+
+assign [class = "Overleaf Desktop"] $ws5
+assign [class = "Pulseeffects"] $ws5
+assign [class = "easyeffects"] $ws5
+assign [class = "Lampe-gtk"] $ws5
+assign [class = "okular"] $ws7
+assign [class = "youtubemusic_2"] $ws8
+
+
+bindsym $mod+Ctrl+Right mark swap; focus right; swap container with mark swap; unmark swap
+
+bindsym $mod+Ctrl+Left mark swap; focus Left; swap container with mark swap; unmark swap
+
+exec focus_outermost_parent.py; mark swap; focus right; exec focus_outermost_parent.py; swap container with mark swap; unmark swap
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# also destroy anything in startup workspace
+
+bindsym $mod+Shift+r restart [workspace=] kill
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#SCROT
+bindsym --release $mod+- exec "scrot ~/Pictures/Screenshots/%b%d:%H%M%S.png"
+
+# Alsa controls
+#bindsym XF86AudioMute exec amixer set Master toggle;  exec pkill  -RTMIN+10 i3blocks
+#bindsym XF86AudioRaiseVolume exec amixer set Master 5%+; exec pkill  -RTMIN+10 i3blocks
+#bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec pkill  -RTMIN+10 i3blocks
+
+
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 2%+;
+
+#exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 2%-;
+
+#exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle;
+
+# exec pkill -RTMIN+10 i3blocks
+
+set $i3_resurrect i3-resurrect
+# Save workspace mode.
+mode "save" {
+  bindsym 1 exec "$i3_resurrect save -w 1: --swallow=class,instance,title"
+  bindsym 2 exec "$i3_resurrect save -w 2: --swallow=class,instance,title"
+  bindsym 3 exec "$i3_resurrect save -w 3: --swallow=class,instance,title"
+  bindsym 4 exec "$i3_resurrect save -w 4: --swallow=class,instance,title"
+  bindsym 5 exec "$i3_resurrect save -w 5: --swallow=class,instance,title"
+  bindsym 6 exec "$i3_resurrect save -w 6: --swallow=class,instance,title"
+  bindsym 7 exec "$i3_resurrect save -w 7: --swallow=class,instance,title"
+  bindsym 8 exec "$i3_resurrect save -w 8: --swallow=class,instance,title"
+  bindsym 9 exec "$i3_resurrect save -w 9: --swallow=class,instance,title"
+  bindsym 0 exec "$i3_resurrect save -w 0: --swallow=class,instance,title"
+  bindsym F1 exec "$i3_resurrect save -w 11: --swallow=class,instance,title"
+  bindsym F2 exec "$i3_resurrect save -w 12: --swallow=class,instance,title"
+  bindsym F3 exec "$i3_resurrect save -w 13: --swallow=class,instance,title"
+  bindsym F4 exec "$i3_resurrect save -w 14: --swallow=class,instance,title"
+  bindsym F5 exec "$i3_resurrect save -w 15: --swallow=class,instance,title"
+
+  # Back to normal: Enter, Escape, or s
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym s mode "default"
+  bindsym $mod+s mode "default"
+}
+
+bindsym $mod+s mode "save"
+
+# Restore workspace mode.
+mode "restore" {
+  bindsym 1 exec "$i3_resurrect restore  -w 1: --programs-only"
+  bindsym 2 exec "$i3_resurrect restore  -w 2: --programs-only"
+  bindsym 3 exec "$i3_resurrect restore  -w 3: --programs-only"
+  bindsym 4 exec "$i3_resurrect restore  -w 4: --programs-only"
+  bindsym 5 exec "$i3_resurrect restore  -w 5: --programs-only"
+  bindsym 6 exec "$i3_resurrect restore  -w 6: --programs-only"
+  bindsym 7 exec "$i3_resurrect restore  -w 7: --programs-only"
+  bindsym 8 exec "$i3_resurrect restore  -w 8: --programs-only"
+  bindsym 9 exec "$i3_resurrect restore  -w 9: --programs-only"
+  bindsym 0 exec "$i3_resurrect restore  -w 0: --programs-only"
+  bindsym F1 exec "$i3_resurrect restore -w 11: --programs-only"
+  bindsym F2 exec "$i3_resurrect restore -w 12: --programs-only"
+  bindsym F3 exec "$i3_resurrect restore -w 13: -programs-only"
+  bindsym F4 exec "$i3_resurrect restore -w 14: --programs-only"
+
+
+  bindsym $mod+1 exec "$i3_resurrect restore -w 1: --layout-only"
+  bindsym $mod+2 exec "$i3_resurrect restore -w 2: --layout-only"
+  bindsym $mod+3 exec "$i3_resurrect restore -w 3: --layout-only"
+  bindsym $mod+4 exec "$i3_resurrect restore -w 4: --layout-only"
+  bindsym $mod+5 exec "$i3_resurrect restore -w 5: --layout-only"
+  bindsym $mod+6 exec "$i3_resurrect restore -w 6: --layout-only"
+  bindsym $mod+7 exec "$i3_resurrect restore -w 7: --layout-only"
+  bindsym $mod+8 exec "$i3_resurrect restore -w 8: --layout-only"
+  bindsym $mod+9 exec "$i3_resurrect restore -w 9: --layout-only"
+  bindsym $mod+0 exec "$i3_resurrect restore -w 0: --layout-only"
+  bindsym $mod+F1 exec "$i3_resurrect restore -w 11: --layout-only"
+  bindsym $mod+F2 exec "$i3_resurrect restore -w 12: --layout-only"
+  bindsym $mod+F3 exec "$i3_resurrect restore -w 13: --layout-only"
+  bindsym $mod+F4 exec "$i3_resurrect restore -w 14: --layout-only"
+  bindsym $mod+F5 exec "$i3_resurrect restore -w 15: --layout-only"
+
+  # Back to normal: Enter, Escape, or n
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym n mode "default"
+  bindsym $mod+n mode "default"
+}
+
+bindsym $mod+m mode "restore"
+
+# Execution
+exec pasystray
+exec /usr/bin/subl
+exec /usr/bin/lampe-gtk
+exec  "sh -c 'sleep 15; exec pulseeffects'"
+exec  "sh -c 'sleep 15; exec discord'"
+exec  "sh -c 'sleep 15; exec discord-screenaudio'"
+exec  "sh -c 'sleep 15; exec youtubemusic_2'"
+
+exec  "sh -c 'sleep 30; exec franz --no-sandbox'"
+exec  "sh -c 'sleep 30; exec session-messenger-desktop --no-sandbox'"
+
+
+bindsym $mod+semicolon exec "rofi_record-audio"
+
+exec  "sh -c 'sleep 30; exec animwall'"
+
+
+# exec  "sh -c 'sleep 30; exec  easyeffects && pw-metadata -n settings 0 clock.force-rate 192000'"
+
+
+
+
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+bindsym $mod+p mode "$mode_system"
+bindsym $mod+slash exec "splatmoji --disable-emoji-db copypaste data/emoticons/kaomoji.tsv data/emoticons/emoticons.tsv"

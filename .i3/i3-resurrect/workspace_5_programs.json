@@ -1,0 +1,14 @@
+[
+  {
+    "command": [
+      "/usr/bin/lampe-gtk"
+    ],
+    "working_directory": "/home/viv"
+  },
+  {
+    "command": [
+      "/usr/bin/pavucontrol"
+    ],
+    "working_directory": "/home/viv"
+  }
+]
