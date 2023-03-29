@@ -1,0 +1,74 @@
+NEw
+  
+  primary:
+    background: '0x000000'
+    foreground: '0xffffff'
+
+  normal:
+    black:   '0x1a1e1d'
+    red:     '0xdbabeb'
+    green:   '0x9c75dd'
+    yellow:  '0x7fa7af'
+    blue:    '0x64629f'
+    magenta: '0x5f4c65'
+    cyan:    '0xa9d1df'
+    white:   '0xf0f4ef'
+
+  # Bright colors
+  bright:
+    black:   '0x5d6f74'
+    red:     '0xd95490'
+    green:   '0x63b0b0'
+    yellow:  '0xc0c0dd'
+    blue:    '0x5786bc'
+    magenta: '0x3f3442'
+    cyan:    '0x849da2'
+    white:   '0xf5f4ef'
+    
+  dim:
+    black:   '0x14151b'
+    red:     '0xff2222'
+    green:   '0x1ef956'
+    yellow:  '0xebf85b'
+    blue:    '0x4d5b86'
+    magenta: '0xff46b0'
+    cyan:    '0x59dffc'
+    white:   '0xe6e6d1'
+
+
+    OLD
+
+
+      # Normal colors
+  normal:
+    black:   '0x0b0d0f'
+    red:     '0xff5555'
+    green:   '0x8aff80'
+    yellow:  '0xffff80'
+    blue:    '0x9580ff'
+    magenta: '0xff80bf'
+    cyan:    '0x80ffea'
+    white:   '0xf8f8f2'
+
+  # Bright colors
+  bright:
+    black:   '0x0b0d0f'
+    red:     '0xff2222'
+    green:   '0xa2ff99'
+    yellow:  '0xffff99'
+    blue:    '0xaa99ff'
+    magenta: '0xff99cc'
+    cyan:    '0x99ffee'
+    white:   '0xffffff'
+
+    
+  dim:
+    black:   '0x14151b'
+    red:     '0xff2222'
+    green:   '0x1ef956'
+    yellow:  '0xebf85b'
+    blue:    '0x4d5b86'
+    magenta: '0xff46b0'
+    cyan:    '0x59dffc'
+    white:   '0xe6e6d1'
+
