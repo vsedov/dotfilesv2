@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo -n '$ '
+read -r CMD
+
+if [[ -n "$CMD" ]]; then
+    tmux new-window -n "help($CMD)" "man $CMD 2> /dev/null || $CMD --help | $MANPAGER"
+fi
