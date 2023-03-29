@@ -1,9 +1,0 @@
-[
-  {
-    "command": [
-      "/opt/firefox-nightly/firefox-bin",
-      "--sync"
-    ],
-    "working_directory": "/home/viv"
-  }
-]
