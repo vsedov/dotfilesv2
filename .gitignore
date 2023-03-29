@@ -1,0 +1,8 @@
+.DS_Store
+*.pro.user
+*-build-simulator/
+.ignore
+.svn/
+*.xcworkspace
+*.xcuserdatad
+temp/
