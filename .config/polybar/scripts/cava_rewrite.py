@@ -20,23 +20,16 @@ class CavaRunner:
         self.cava_conf = f"{FifoPath}.conf"
 
     def create_conf_file(self):
-        conf_channels = ""
         if self.channels != "stereo":
-            conf_channels = "channels=mono\n" f"mono_option={self.channels}"
-
+            conf_channels = f"channels=mono\nmono_option={self.channels}"
+        else:
+            conf_channels = ""
         conf_ascii_max_range = 12 + len(
             [i for i in self.extra_colors.split(",") if i]
         )
         with open(self.cava_conf, "w") as cava_conf_file:
             cava_conf_file.write(
-                "[general]\n"
-                f"framerate={self.framerate}\n"
-                f"bars={self.bars}\n"
-                "[output]\n"
-                "method=raw\n"
-                "data_format=ascii\n"
-                f"ascii_max_range={conf_ascii_max_range}\n"
-                "bar_delimiter=32" + conf_channels
+                f"[general]\nframerate={self.framerate}\nbars={self.bars}\n[output]\nmethod=raw\ndata_format=ascii\nascii_max_range={conf_ascii_max_range}\nbar_delimiter=32{conf_channels}"
             )
 
     def run(self):
@@ -69,13 +62,10 @@ if len(sys.argv) > 1 and sys.argv[1] == "--subproc":
             while True:
                 cava_input = input().strip().split()
                 cava_input = [int(i) for i in cava_input]
-                output = ""
-                for bar in cava_input:
-                    if bar < len(ramp_list):
-                        output += ramp_list[bar]
-                    else:
-                        output += ramp_list[-1]
-
+                output = "".join(
+                    ramp_list[bar] if bar < len(ramp_list) else ramp_list[-1]
+                    for bar in cava_input
+                )
                 fifo_write.write(f"{output}\n")
                 fifo_write.flush()
     except IOError as e:

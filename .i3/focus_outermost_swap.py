@@ -26,7 +26,7 @@ if index >= len(nodes) or index < 0:
     exit()
 
 con2 = nodes[index]
-for i in range(counter, 0, -1):
+for _ in range(counter, 0, -1):
     n = con2.nodes
     if len(n) == 0:
         break  # exit()?

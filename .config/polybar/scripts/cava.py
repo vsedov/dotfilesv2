@@ -7,21 +7,15 @@ import subprocess
 import sys
 import tempfile
 
-fifo_path = "/tmp/nvim_pipe"
 if len(sys.argv) > 1 and sys.argv[1] == "--subproc":
     ramp_list = [" ", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     while True:
         cava_input = input().strip().split()
         cava_input = [int(i) for i in cava_input]
-        output = ""
-
-        for bar in cava_input:
-            if bar < len(ramp_list):
-                output += ramp_list[bar]
-
-            else:
-                output += ramp_list[-1]
-
+        output = "".join(
+            ramp_list[bar] if bar < len(ramp_list) else ramp_list[-1]
+            for bar in cava_input
+        )
         print(output)
 
 
@@ -57,6 +51,7 @@ if opts.channels != "stereo":
 
 conf_ascii_max_range = 12 + len([i for i in opts.extra_colors.split(",") if i])
 
+fifo_path = "/tmp/nvim_pipe"
 # cava_conf = tempfile.mkstemp("", "polybar-cava-conf.")[1]
 cava_conf = f"{fifo_path}.conf"
 try:
@@ -69,14 +64,7 @@ except FileExistsError:
 
 with open(cava_conf, "w") as cava_conf_file:
     cava_conf_file.write(
-        "[general]\n"
-        f"framerate={opts.framerate}\n"
-        f"bars={opts.bars}\n"
-        "[output]\n"
-        "method=raw\n"
-        "data_format=ascii\n"
-        f"ascii_max_range={conf_ascii_max_range}\n"
-        "bar_delimiter=32" + conf_channels
+        f"[general]\nframerate={opts.framerate}\nbars={opts.bars}\n[output]\nmethod=raw\ndata_format=ascii\nascii_max_range={conf_ascii_max_range}\nbar_delimiter=32{conf_channels}"
     )
 
 

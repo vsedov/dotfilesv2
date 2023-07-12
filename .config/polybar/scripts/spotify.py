@@ -13,6 +13,6 @@ try:
   # if len(artisttitle) == 45:
   #     print(artisttitle+"... ")
   # else:
-    print(artisttitle+" ")
+    print(f"{artisttitle} ")
 except:
     print("")

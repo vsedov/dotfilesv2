@@ -91,10 +91,7 @@ def patch_sysconfig(libpath):
         @functools.wraps(get_paths)
         def wrapper(scheme=None, vars=None, expand=True):
             default_scheme = get_paths.__defaults__[0]
-            if not vars and scheme is None:
-                scheme = "pep582"
-            else:
-                scheme = scheme or default_scheme
+            scheme = "pep582" if not vars and scheme is None else scheme or default_scheme
             return get_paths(scheme, vars, expand)
 
         return wrapper

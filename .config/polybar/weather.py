@@ -13,13 +13,13 @@ def main():
         data = urllib.parse.urlencode({"q": city, "appid": api_key, "units": "metric"})
         weather = json.loads(
             urllib.request.urlopen(
-                "http://api.openweathermap.org/data/2.5/weather?" + data
+                f"http://api.openweathermap.org/data/2.5/weather?{data}"
             ).read()
         )
         desc = weather["weather"][0]["description"].capitalize()
         temp = int(float(weather["main"]["temp"]))
         # return '{}, {}°F'.format(desc, temp)
-        return "{}°C".format(temp)
+        return f"{temp}°C"
     except:
         return ""
 

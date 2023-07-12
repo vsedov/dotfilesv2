@@ -29,15 +29,11 @@ def get_windows():
 
 # Extracts all windows from a sway workspace json object 
 def extract_nodes_iterative(workspace):
-    all_nodes = []
-    
     floating_nodes = workspace.get('floating_nodes')
 
-    for floating_node in floating_nodes:
-        all_nodes.append(floating_node)
-
+    all_nodes = list(floating_nodes)
     nodes = workspace.get('nodes')
-    
+
     for node in nodes:
 
         # Leaf node
@@ -52,10 +48,7 @@ def extract_nodes_iterative(workspace):
 
 # Returns an array of all windows
 def parse_windows(windows):
-    parsed_windows = []
-    for window in windows:
-        parsed_windows.append(window.get('name'))
-    return parsed_windows
+    return [window.get('name') for window in windows]
 
 # Returns a newline seperated UFT-8 encoded string of all windows for wofi
 def build_wofi_string(windows):
@@ -77,8 +70,8 @@ def parse_id(windows, parsed_windows, selected):
 
 # Switches the focus to the given id
 def switch_window(id):
-    command="swaymsg [con_id={}] focus".format(id)
-    
+    command = f"swaymsg [con_id={id}] focus"
+
     process = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE)
     process.communicate()[0]
 

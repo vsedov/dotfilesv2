@@ -81,10 +81,11 @@ def format_chances(hour):
         "chanceofwindy": "Wind"
     }
 
-    conditions = []
-    for event in chances.keys():
-        if int(hour[event]) > 0:
-            conditions.append(chances[event]+" "+hour[event]+"%")
+    conditions = [
+        f"{value} {hour[event]}%"
+        for event, value in chances.items()
+        if int(hour[event]) > 0
+    ]
     return ", ".join(conditions)
 
 
@@ -99,7 +100,7 @@ for i, day in enumerate(weather['weather']):
     data['tooltip'] += f"\n<b>"
     if i == 0:
         data['tooltip'] += "Today, "
-    if i == 1:
+    elif i == 1:
         data['tooltip'] += "Tomorrow, "
     data['tooltip'] += f"{day['date']}</b>\n"
     data['tooltip'] += f"⬆️ {day['maxtempC']}° ⬇️ {day['mintempC']}° "
